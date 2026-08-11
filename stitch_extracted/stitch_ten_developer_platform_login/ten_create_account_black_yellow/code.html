@@ -1,0 +1,328 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Registration | TEN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-bright": "#3a3a2b",
+                "on-tertiary-fixed-variant": "#244d4e",
+                "surface-container-highest": "#363527",
+                "on-surface": "#e6e3ce",
+                "secondary": "#c6c6c7",
+                "inverse-primary": "#626200",
+                "on-primary-fixed": "#1d1d00",
+                "on-primary": "#323200",
+                "on-secondary-container": "#b4b5b5",
+                "surface-container-high": "#2b2b1d",
+                "on-surface-variant": "#cac8aa",
+                "outline": "#939277",
+                "surface-tint": "#cdcd00",
+                "tertiary-fixed": "#c0eaeb",
+                "on-primary-fixed-variant": "#494900",
+                "primary-fixed-dim": "#cdcd00",
+                "tertiary-container": "#c0eaeb",
+                "surface": "#141408",
+                "primary": "#ffffff",
+                "outline-variant": "#484831",
+                "tertiary-fixed-dim": "#a4cece",
+                "inverse-on-surface": "#323123",
+                "surface-container-lowest": "#0f0f04",
+                "on-tertiary-fixed": "#002020",
+                "background": "#141408",
+                "on-error": "#690005",
+                "on-secondary-fixed": "#1a1c1c",
+                "error": "#ffb4ab",
+                "on-error-container": "#ffdad6",
+                "on-tertiary-container": "#436b6c",
+                "secondary-fixed-dim": "#c6c6c7",
+                "primary-container": "#eaea00",
+                "inverse-surface": "#e6e3ce",
+                "on-primary-container": "#686800",
+                "on-tertiary": "#093637",
+                "surface-container-low": "#1c1c0f",
+                "secondary-container": "#454747",
+                "error-container": "#93000a",
+                "on-secondary": "#2f3131",
+                "primary-fixed": "#eaea00",
+                "tertiary": "#ffffff",
+                "surface-container": "#202013",
+                "surface-variant": "#363527",
+                "surface-dim": "#141408",
+                "secondary-fixed": "#e2e2e2",
+                "on-secondary-fixed-variant": "#454747",
+                "on-background": "#e6e3ce",
+                "custom-black": "#000000",
+                "custom-dark": "#111111",
+                "custom-yellow": "#ffff00"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "container-max": "1440px",
+                "margin": "24px",
+                "unit": "4px",
+                "gutter": "16px"
+        },
+        "fontFamily": {
+                "label-caps": [
+                        "Geist"
+                ],
+                "mono-data": [
+                        "Geist"
+                ],
+                "body-lg": [
+                        "Geist"
+                ],
+                "body-sm": [
+                        "Geist"
+                ],
+                "headline-lg": [
+                        "Geist"
+                ],
+                "headline-md": [
+                        "Geist"
+                ]
+        },
+        "fontSize": {
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "mono-data": [
+                        "13px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1.5",
+                                "letterSpacing": "0em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.04em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #363527;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #484831;
+        }
+    </style>
+</head>
+<body class="bg-custom-black text-on-background font-body-lg antialiased min-h-screen flex selection:bg-custom-yellow selection:text-custom-black">
+<!-- Split Screen Layout -->
+<div class="flex w-full min-h-screen">
+<!-- Left Pane: Brand Showcase (Hidden on Mobile) -->
+<div class="hidden lg:flex lg:w-[45%] xl:w-1/2 bg-custom-black text-primary relative overflow-hidden flex-col justify-between">
+<!-- Background Image/Texture -->
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="A striking abstract digital art piece featuring glowing, generative geometric wireframes intersecting in a deep, void-like space. The scene is illuminated by subtle, high-contrast lighting creating a premium, dark-mode technical aesthetic. The mood is highly advanced and precise, using deep blacks and stark whites with minimal interference." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbTaJsNxVcsVA-jvo3QG4H-tYAo2oGftN2jRGM-HTEmfVwK4smmFQjsrZY8sJFYh8-_VElR7tu_KAYKyEl-EwuGsQJwBGJOHw0ZdVjOzjM1pCxjXB8PrQnLm-Y6YKWDs24TxXZq-8JkzsRmuZRcuiSr4wSmgPrhtS4CgIIAvLaahkFcFXmiOaf2fYroT0YGdWbQrt7o40QFTPDy4mF46pyfMfwAg9QE4n3gSs9ojDX_W8XaZlVsTaH')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-custom-black via-transparent to-custom-black opacity-80"></div>
+</div>
+<!-- Header/Logo Area -->
+<div class="relative z-10 p-12 lg:p-16">
+<img alt="TEN Logo" class="h-16 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB-5wbGy5NBldcJsDp30VGupuvJXRBqiqmARsfCHMrRye1cbLMJ0dVcsPhViVuUy7jeo_gltPKlmLVrZZyHbcdizqGcx-H6w9tjmaadl8UskFEQOHkD2llFodA9uvFVw9EeF4nUy72J3l-HF7MDrBvCXJBSAK0M84l2etAIQBl20uiU-dzT8myV8rE9x9Ko3k2p2_cWU4eJjrr_GCjDR_yI7MB6CiUxwKFsRZHLEYN7uckHdSPogjb">
+</div>
+<!-- Value Proposition -->
+<div class="relative z-10 p-12 lg:p-16 max-w-lg mt-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">High-Performance Infrastructure</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Join TEN to access precision tools, benchmarks, and a streamlined environment designed for technical excellence. Build, manage, and scale with minimal friction.
+                </p>
+</div>
+</div>
+<!-- Right Pane: Registration Form -->
+<div class="w-full lg:w-[55%] xl:w-1/2 flex flex-col justify-between bg-custom-dark min-h-screen">
+<!-- Mobile Header (Logo) -->
+<div class="lg:hidden p-6 flex justify-center border-b border-outline-variant bg-surface-container-lowest">
+<img alt="TEN Logo" class="h-12 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4-3MdPTtkcNLdftCxVFshRpvvQP4gbFj87zr4LbsTMpnyJNp7VwsFfgoK9WQlEqpyyeq6s-SS9LYchZ3AZbfIfXZiwxtcFaU189Q0Fm2EsWOO8KzC9AazubZQh1ZxmF2xfyZ9KdwKaXA_hs7Hgul7-umniV7vk83u8m8PMjQpGQc0Q0-kUMyD3VqOQQ5zhtNSwpc4LjO6blAxT6qp0Mv3w5_wcYJ1xfwOhNu2MscLYZuXF6ihUg9J">
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col justify-center px-6 sm:px-12 lg:px-24 py-12">
+<div class="w-full max-w-[420px] mx-auto">
+<!-- Header -->
+<div class="mb-10 text-center lg:text-left">
+<h1 class="font-headline-lg text-[24px] lg:text-headline-lg text-primary tracking-tight mb-2">Create an account</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enter your details below to get started.</p>
+</div>
+<!-- Form -->
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Role Selection -->
+<div class="space-y-3">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Choose your role</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Participant Card -->
+<label class="relative flex cursor-pointer rounded-lg border border-custom-yellow ring-1 ring-custom-yellow bg-surface-container-lowest p-4 hover:bg-surface-container-low transition-colors" data-role-card="">
+<input checked="" class="sr-only" name="role" type="radio" value="participant">
+<div class="flex flex-col gap-1">
+<span class="block font-headline-md text-[16px] text-primary">Participant</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Complete modules, track progress.</span>
+</div>
+<div class="absolute top-4 right-4 text-custom-yellow">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</label>
+<!-- Team Lead Card -->
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant bg-surface-container-lowest p-4 hover:border-custom-yellow hover:bg-surface-container-low transition-colors" data-role-card="">
+<input class="sr-only" name="role" type="radio" value="team_lead">
+<div class="flex flex-col gap-1">
+<span class="block font-headline-md text-[16px] text-primary">Team Lead</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Manage groups, view analytics.</span>
+</div>
+<div class="absolute top-4 right-4 text-outline-variant opacity-0 transition-opacity" data-check-icon="">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Name Field -->
+<div class="space-y-1.5 pt-2">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="name">Full Name</label>
+<div class="relative">
+<input class="w-full h-11 px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary placeholder:text-outline focus:outline-none focus:border-custom-yellow focus:ring-1 focus:ring-custom-yellow transition-shadow font-body-lg text-body-lg" id="name" placeholder="Jane Doe" required="" type="text">
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="email">Email Address</label>
+<div class="relative">
+<input class="w-full h-11 px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary placeholder:text-outline focus:outline-none focus:border-custom-yellow focus:ring-1 focus:ring-custom-yellow transition-shadow font-body-lg text-body-lg" id="email" placeholder="jane@example.com" required="" type="email">
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="password">Password</label>
+<div class="relative">
+<input class="w-full h-11 px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary placeholder:text-outline focus:outline-none focus:border-custom-yellow focus:ring-1 focus:ring-custom-yellow transition-shadow font-body-lg text-body-lg" id="password" placeholder="••••••••" required="" type="password">
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-1.5">
+<label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="confirm-password">Confirm Password</label>
+<div class="relative">
+<input class="w-full h-11 px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-primary placeholder:text-outline focus:outline-none focus:border-custom-yellow focus:ring-1 focus:ring-custom-yellow transition-shadow font-body-lg text-body-lg" id="confirm-password" placeholder="••••••••" required="" type="password">
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full h-11 flex justify-center items-center px-4 border border-transparent rounded-lg font-label-caps text-label-caps text-custom-black bg-custom-yellow hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-yellow transition-all uppercase tracking-wider shadow-sm" type="submit">
+                                Create Account
+                            </button>
+</div>
+<!-- Login Link -->
+<div class="text-center pt-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                                Already have an account? 
+                                <a class="text-primary hover:text-custom-yellow font-medium underline underline-offset-4 decoration-outline-variant hover:decoration-custom-yellow transition-all" href="#">Log in</a>
+</p>
+</div>
+</form>
+</div>
+</div>
+<!-- Minimal Footer -->
+<div class="py-6 px-6 lg:px-12 border-t border-outline-variant flex justify-center lg:justify-start">
+<span class="font-mono-data text-mono-data text-on-surface-variant uppercase tracking-widest">TEN PLATFORM · v1.0</span>
+</div>
+</div>
+</div>
+<script>
+        // Micro-interaction for role selection cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleLabels = document.querySelectorAll('label[data-role-card]');
+            
+            roleLabels.forEach(label => {
+                label.addEventListener('click', function() {
+                    // Reset all cards
+                    roleLabels.forEach(l => {
+                        l.classList.remove('border-custom-yellow', 'ring-1', 'ring-custom-yellow');
+                        l.classList.add('border-outline-variant');
+                        
+                        // Hide check icon on inactive
+                        const iconContainer = l.querySelector('div.absolute');
+                        const icon = l.querySelector('span.material-symbols-outlined');
+                        if(iconContainer && !iconContainer.hasAttribute('data-check-icon')) {
+                            iconContainer.setAttribute('data-check-icon', '');
+                            iconContainer.classList.remove('text-custom-yellow');
+                            iconContainer.classList.add('text-outline-variant', 'opacity-0');
+                        }
+                    });
+                    
+                    // Set active state on clicked card
+                    this.classList.remove('border-outline-variant');
+                    this.classList.add('border-custom-yellow', 'ring-1', 'ring-custom-yellow');
+                    
+                    // Show check icon on active
+                    const activeIconContainer = this.querySelector('div.absolute');
+                    if(activeIconContainer) {
+                        activeIconContainer.removeAttribute('data-check-icon');
+                        activeIconContainer.classList.remove('text-outline-variant', 'opacity-0');
+                        activeIconContainer.classList.add('text-custom-yellow');
+                    }
+
+                    // Update underlying radio input
+                    const input = this.querySelector('input[type="radio"]');
+                    if(input) input.checked = true;
+                });
+            });
+        });
+    </script>
+</body></html>

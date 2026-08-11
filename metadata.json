@@ -1,0 +1,6 @@
+{
+  "name": "Ten Workspace Challenge",
+  "description": "Role-based workspace for mini-hackathons with GitHub submissions, Team Lead verification, Admin approval, credit allocation, and live leaderboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

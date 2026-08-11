@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submissions Hub - TEN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-surface": "#2f3131",
+                        "border-subtle": "#E5E5E5",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed": "#ffe16d",
+                        "primary-fixed": "#e5e2e1",
+                        "status-rejected": "#EF4444",
+                        "secondary-fixed-dim": "#e9c400",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary": "#705d00",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-low": "#f3f3f3",
+                        "inverse-primary": "#c8c6c5",
+                        "on-tertiary-container": "#838484",
+                        "on-surface-variant": "#444748",
+                        "surface-container": "#eeeeee",
+                        "status-approved": "#10B981",
+                        "on-secondary-fixed": "#221b00",
+                        "status-review": "#FFD700",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-container": "#1a1c1c",
+                        "on-primary-container": "#858383",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-container": "#6e5c00",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "status-verified": "#3B82F6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary": "#000000",
+                        "outline": "#747878",
+                        "surface-dim": "#dadada",
+                        "status-submitted": "#666666",
+                        "secondary-container": "#fcd400",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#ffffff",
+                        "text-muted": "#666666"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-content-width": "1200px",
+                        "gutter": "24px",
+                        "sidebar-width": "240px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "technical-data": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "technical-data": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAFA; color: #1A1A1A; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col md:flex-row h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 h-16 fixed top-0 right-0 z-40 border-b border-border-subtle dark:border-outline-variant hidden md:flex items-center justify-between px-gutter w-[calc(100%-240px)] ml-[240px]">
+<div class="flex items-center">
+<!-- Search Bar on_left logic handled in JSON but simplified here for generic header -->
+<div class="relative w-64 hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-sm">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low border border-border-subtle rounded text-body-sm font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search submissions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors focus:ring-2 focus:ring-secondary-container rounded-full p-1"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-text-muted hover:text-primary transition-colors focus:ring-2 focus:ring-secondary-container rounded-full p-1"><span class="material-symbols-outlined">help_outline</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-border-subtle overflow-hidden ml-2 cursor-pointer focus:ring-2 focus:ring-secondary-container" tabindex="0">
+<img alt="User profile with role badge" class="w-full h-full object-cover" data-alt="A minimalist avatar image featuring a highly stylized geometric representation of a user profile in subtle monochromatic shades. The image uses sharp lines and smooth gradients, fitting a clean, high-tech interface design. Light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyScBhvUJvEWmHnypTrxWYDdbfbjm7K7ZoxbuVAHYzZFes7s0AI2z6UVTlAyTjcUn7khimpvfALEwZ8SzEVvZ3-riPUwfFd2IyfTA_KIhfeReinIWx4x39eD6BdoBSm-DtbI7PV7n2ibj4ARJphrtjll2NqjOvtQdE-9tQgzdEfPuaeqJ5EuHzZqwmKxL0fDqFi9M5OGymsKk3U-eFG6ZBvnzSsfYKEJLvFUeGSCAMNRT2ZVFKp3d_"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-surface-container-lowest border-r border-border-subtle dark:border-outline-variant w-[240px] h-screen fixed left-0 top-0 hidden md:flex flex flex-col h-full p-4 z-50">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-bold text-lg rounded">
+                    T
+                </div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface tracking-tighter">TEN</h1>
+<p class="font-technical-data text-technical-data text-text-muted">Developer Challenges</p>
+</div>
+</div>
+</div>
+<button class="mb-6 w-full py-2 bg-secondary-container text-on-secondary-container font-label-caps text-label-caps font-bold rounded hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">add</span> Submit Challenge
+        </button>
+<div class="flex-1 overflow-y-auto space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label-caps text-label-caps">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container dark:bg-surface-container-high text-on-surface border-l-2 border-secondary-container rounded-r active:scale-[0.98] transition-transform font-bold" href="#">
+<span class="material-symbols-outlined">send</span>
+<span class="font-label-caps text-label-caps text-primary">Submissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps">Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-caps text-label-caps">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</div>
+<div class="mt-auto pt-4 border-t border-border-subtle space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-label-caps">Documentation</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[240px] md:mt-16 overflow-y-auto p-margin-mobile md:p-gutter flex justify-center">
+<div class="w-full max-w-max-content-width flex flex-col gap-8">
+<!-- Page Header -->
+<header>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Submissions</h2>
+<p class="font-body-md text-body-md text-text-muted">Track project submissions, verification, and approval status.</p>
+</header>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-4 hover:border-outline-variant transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-lowest to-surface-container-low opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted mb-2">My Submissions</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">18</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-4 hover:border-outline-variant transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-2 h-full bg-status-review/20"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted mb-2">Under Review</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">2</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-4 hover:border-outline-variant transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-2 h-full bg-status-verified/20"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted mb-2">Verified</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">11</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-4 hover:border-outline-variant transition-colors group cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-2 h-full bg-status-approved/20"></div>
+<div class="relative z-10 flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted mb-2">Approved</span>
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">9</span>
+</div>
+</div>
+</section>
+<!-- Data Table Section -->
+<section class="flex flex-col flex-1 bg-surface-container-lowest border border-border-subtle rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<!-- Table Header Actions -->
+<div class="p-4 border-b border-border-subtle flex justify-between items-center bg-surface-bright">
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-border-subtle rounded text-body-sm font-body-sm text-text-muted hover:text-primary hover:border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filter
+                        </button>
+<button class="px-3 py-1.5 border border-border-subtle rounded text-body-sm font-body-sm text-text-muted hover:text-primary hover:border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">swap_vert</span> Sort
+                        </button>
+</div>
+</div>
+<!-- Desktop Table View -->
+<div class="overflow-x-auto hidden md:block">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-subtle bg-surface-container-low/50">
+<th class="py-3 px-4 font-label-caps text-label-caps text-text-muted w-1/3">Submission</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-text-muted w-1/6">Module</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-text-muted w-1/6">Status</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-text-muted w-1/6">Credits</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-text-muted w-1/6 text-right">Submitted</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-lowest transition-colors h-12 group">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-primary">CLI File Manager</span>
+<a class="font-technical-data text-technical-data text-text-muted hover:text-status-verified flex items-center gap-1 mt-0.5" href="#">
+<span class="material-symbols-outlined text-[12px]">code</span> github.com/user/cli-file-manager
+                                        </a>
+</div>
+</td>
+<td class="py-2 px-4 text-text-muted">Module 07</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-verified/10 text-status-verified border border-status-verified/20">Verified</span>
+</td>
+<td class="py-2 px-4 font-technical-data text-technical-data text-status-approved">+150</td>
+<td class="py-2 px-4 text-text-muted text-right">2h ago</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-lowest transition-colors h-12 group">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-primary">REST API Gateway</span>
+<a class="font-technical-data text-technical-data text-text-muted hover:text-status-verified flex items-center gap-1 mt-0.5" href="#">
+<span class="material-symbols-outlined text-[12px]">code</span> github.com/user/rest-gateway
+                                        </a>
+</div>
+</td>
+<td class="py-2 px-4 text-text-muted">Module 08</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-review/20 text-on-secondary-container border border-status-review/30">Under Review</span>
+</td>
+<td class="py-2 px-4 font-technical-data text-technical-data text-text-muted">-</td>
+<td class="py-2 px-4 text-text-muted text-right">1d ago</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-lowest transition-colors h-12 group">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-primary">React Component Library</span>
+<a class="font-technical-data text-technical-data text-text-muted hover:text-status-verified flex items-center gap-1 mt-0.5" href="#">
+<span class="material-symbols-outlined text-[12px]">code</span> github.com/user/ui-lib
+                                        </a>
+</div>
+</td>
+<td class="py-2 px-4 text-text-muted">Module 05</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-approved/10 text-status-approved border border-status-approved/20">Approved</span>
+</td>
+<td class="py-2 px-4 font-technical-data text-technical-data text-status-approved">+300</td>
+<td class="py-2 px-4 text-text-muted text-right">3d ago</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-border-subtle hover:bg-surface-container-lowest transition-colors h-12 group">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span class="font-medium text-primary">Auth Middleware</span>
+<a class="font-technical-data text-technical-data text-text-muted hover:text-status-verified flex items-center gap-1 mt-0.5" href="#">
+<span class="material-symbols-outlined text-[12px]">code</span> github.com/user/auth-mdw
+                                        </a>
+</div>
+</td>
+<td class="py-2 px-4 text-text-muted">Module 06</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-rejected/10 text-status-rejected border border-status-rejected/20">Changes Req.</span>
+</td>
+<td class="py-2 px-4 font-technical-data text-technical-data text-text-muted">-</td>
+<td class="py-2 px-4 text-text-muted text-right">5d ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Mobile Card View -->
+<div class="md:hidden flex flex-col p-4 gap-4">
+<!-- Mobile Card 1 -->
+<div class="border border-border-subtle rounded p-4 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-medium text-primary font-body-sm text-body-sm">CLI File Manager</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-verified/10 text-status-verified border border-status-verified/20">Verified</span>
+</div>
+<a class="font-technical-data text-technical-data text-text-muted block mb-3 truncate hover:text-status-verified" href="#">github.com/user/cli-file-manager</a>
+<div class="flex justify-between items-end border-t border-border-subtle pt-3">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted">Module 07</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-1">2h ago</span>
+</div>
+<span class="font-technical-data text-technical-data text-status-approved">+150</span>
+</div>
+</div>
+<!-- Mobile Card 2 -->
+<div class="border border-border-subtle rounded p-4 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-medium text-primary font-body-sm text-body-sm">REST API Gateway</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-label-caps bg-status-review/20 text-on-secondary-container border border-status-review/30">Under Review</span>
+</div>
+<a class="font-technical-data text-technical-data text-text-muted block mb-3 truncate hover:text-status-verified" href="#">github.com/user/rest-gateway</a>
+<div class="flex justify-between items-end border-t border-border-subtle pt-3">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-text-muted">Module 08</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-1">1d ago</span>
+</div>
+<span class="font-technical-data text-technical-data text-text-muted">-</span>
+</div>
+</div>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-border-subtle bg-surface-container-lowest flex justify-between items-center text-body-sm font-body-sm text-text-muted">
+<span>Showing 1 to 4 of 18 entries</span>
+<div class="flex gap-1">
+<button class="px-2 py-1 rounded hover:bg-surface-container disabled:opacity-50" disabled=""><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button class="px-2 py-1 rounded bg-surface-container text-primary font-medium">1</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container">2</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container">3</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

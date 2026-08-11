@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Lead Dashboard - TEN Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0f0f04",
+                      "tertiary-fixed": "#c0eaeb",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#1d1d00",
+                      "primary-fixed-dim": "#cdcd00",
+                      "primary": "#ffffff",
+                      "surface-dim": "#141408",
+                      "on-tertiary-fixed-variant": "#244d4e",
+                      "surface-tint": "#cdcd00",
+                      "outline-variant": "#484831",
+                      "surface-container": "#202013",
+                      "on-secondary": "#2f3131",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "primary-container": "#eaea00",
+                      "outline": "#939277",
+                      "on-primary": "#323200",
+                      "secondary": "#c6c6c7",
+                      "on-secondary-fixed-variant": "#454747",
+                      "inverse-surface": "#e6e3ce",
+                      "tertiary-container": "#c0eaeb",
+                      "on-secondary-container": "#b4b5b5",
+                      "background": "#141408",
+                      "secondary-fixed": "#e2e2e2",
+                      "tertiary-fixed-dim": "#a4cece",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-surface": "#e6e3ce",
+                      "surface-bright": "#3a3a2b",
+                      "on-primary-container": "#686800",
+                      "surface-container-high": "#2b2b1d",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#cac8aa",
+                      "surface-variant": "#363527",
+                      "surface-container-low": "#1c1c0f",
+                      "error": "#ffb4ab",
+                      "on-tertiary": "#093637",
+                      "surface-container-highest": "#363527",
+                      "on-background": "#e6e3ce",
+                      "tertiary": "#ffffff",
+                      "inverse-on-surface": "#323123",
+                      "on-tertiary-fixed": "#002020",
+                      "on-primary-fixed-variant": "#494900",
+                      "inverse-primary": "#626200",
+                      "primary-fixed": "#eaea00",
+                      "error-container": "#93000a",
+                      "surface": "#141408",
+                      "on-tertiary-container": "#436b6c",
+                      "secondary-container": "#454747"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "margin": "24px",
+                      "container-max": "1440px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Geist"
+                      ],
+                      "body-lg": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "headline-lg": [
+                              "Geist"
+                      ],
+                      "mono-data": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "mono-data": [
+                              "13px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        .outline-1px {
+            border: 1px solid #333333;
+        }
+        .hover-outline-yellow:hover {
+            border-color: #FFFF00;
+        }
+        .text-electric {
+            color: #FFFF00;
+        }
+        .bg-electric {
+            background-color: #FFFF00;
+        }
+        .bg-charcoal {
+            background-color: #111111;
+        }
+        .bg-deep-charcoal {
+            background-color: #1A1A1A;
+        }
+        
+        /* Custom Scrollbar for dense data tables */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFFF00;
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 bg-background dark:bg-background border-b border-outline-variant dark:border-outline-variant flex justify-between items-center px-margin z-40 ml-64">
+<div class="flex items-center gap-4">
+<span class="font-mono-data text-mono-data text-on-surface-variant dark:text-on-surface-variant">TEN /</span>
+<span class="font-mono-data text-mono-data text-primary dark:text-primary font-bold">Teams</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-opacity duration-200 cursor-pointer">search</span>
+<span class="material-symbols-outlined text-secondary hover:text-primary transition-opacity duration-200 cursor-pointer">notifications</span>
+</div>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<span class="font-mono-data text-mono-data text-primary">Admin Role</span>
+<img alt="Admin User Avatar" class="w-8 h-8 rounded-full outline-1px group-hover:border-[#FFFF00] transition-colors object-cover" data-alt="A small circular avatar of an administrator in a high-tech control room setting. Minimalist, dark mode lighting with sharp yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuF59pXuNPa-nsikTofFKenW-SUwp9Op7MXCGXeFuSfaseY9nsFc1sMmso5lWEV0m-G9QkfsiUZ2xZSEAmntIOz7giCwyYlxD2RT1myYqgjA9kgY-337SyplB5T7P-HauhWl_MraUdWcG3_t7zaKUM8lzSXKRmChpCbvjxEokvxo0sN2Zd_naSKnxOAIzpcI4jNS09htlfqygjTa34L7c2J_DMjrmp5e-v7F1q1a_D4Md1bO3fpqim"/>
+</div>
+</div>
+</nav>
+<!-- Side Navigation Bar -->
+<aside class="w-64 h-screen fixed left-0 top-0 bg-background dark:bg-background border-r border-outline-variant dark:border-outline-variant flex flex-col py-margin px-4 z-50">
+<div class="mb-8 px-2 flex items-center justify-between">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary tracking-tighter">TEN</h1>
+<p class="font-mono-data text-mono-data text-secondary mt-1">Dev Authority</p>
+</div>
+<img alt="TEN Platform Logo" class="w-8 h-8 object-cover rounded-DEFAULT outline-1px" data-alt="A stylized geometric logo representing technical authority and modular architecture. Deep blacks, sharp edges, and a single bright yellow geometric node." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9VAhvMfahQczGFSuGVxl06aXXr9qFMaQUw-kgpRahE2RH3ltaMsAkboEtDaY7M0gDuqIA0xpJFcvHj2-aOKwtvukA21KULJ4QpgGT4dLpiQhkyb1CvOOAiE6vF1-q3ko04P5dFdROKI24F6PHN3ZdAoME8Dl6eCTl_-cjvEKUw6rzI1lsae3-jcwzIGeVL1CYcO_cbwBesDocH2GWmu_jM444kMwcGMYRpdQifePn5veaQ2xT5QZN"/>
+</div>
+<button class="w-full bg-electric text-black font-label-caps text-label-caps py-3 px-4 rounded-DEFAULT mb-8 hover:opacity-90 transition-opacity">
+            New Submission
+        </button>
+<nav class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<!-- Navigation Items based on JSON -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">extension</span>
+<span class="font-label-caps text-label-caps">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-label-caps text-label-caps">Submissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">leaderboard</span>
+<span class="font-label-caps text-label-caps">Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-primary dark:text-primary border-l-2 border-primary bg-surface-container-high outline-1px border-y border-r hover:border-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-label-caps">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">admin_panel_settings</span>
+<span class="font-label-caps text-label-caps">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">fact_check</span>
+<span class="font-label-caps text-label-caps">Verification Queue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2 rounded-DEFAULT text-secondary dark:text-secondary opacity-70 hover:border-primary hover:text-primary transition-colors duration-150 border border-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">memory</span>
+<span class="font-label-caps text-label-caps">System Status</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 p-margin h-[calc(100vh-64px)] overflow-y-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary mb-2">Team Dashboard</h2>
+<div class="flex items-center gap-3">
+<div class="bg-charcoal outline-1px rounded-DEFAULT px-3 py-1 flex items-center gap-2 cursor-pointer hover-outline-yellow">
+<span class="font-mono-data text-mono-data text-primary">Team Alpha</span>
+<span class="material-symbols-outlined text-secondary text-sm">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<button class="bg-black outline-1px rounded-DEFAULT px-6 py-2 flex items-center gap-2 hover-outline-yellow text-primary font-label-caps text-label-caps transition-colors group">
+<span class="material-symbols-outlined text-secondary group-hover:text-electric transition-colors">add</span>
+                Create Group
+            </button>
+</div>
+<!-- Statistics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-8">
+<div class="bg-charcoal outline-1px rounded-DEFAULT p-4 hover-outline-yellow transition-colors relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">group</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-secondary mb-2">Participants</h3>
+<p class="font-headline-md text-headline-md text-primary font-mono-data">24</p>
+</div>
+<div class="bg-charcoal outline-1px rounded-DEFAULT p-4 border-l-2 border-l-[#FFFF00] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl text-electric">pending_actions</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-secondary mb-2">Pending Reviews</h3>
+<p class="font-headline-md text-headline-md text-electric font-mono-data">8</p>
+</div>
+<div class="bg-charcoal outline-1px rounded-DEFAULT p-4 hover-outline-yellow transition-colors relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">verified</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-secondary mb-2">Verified Submissions</h3>
+<p class="font-headline-md text-headline-md text-primary font-mono-data">86</p>
+</div>
+<div class="bg-charcoal outline-1px rounded-DEFAULT p-4 hover-outline-yellow transition-colors relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10">
+<span class="material-symbols-outlined text-4xl">monetization_on</span>
+</div>
+<h3 class="font-label-caps text-label-caps text-secondary mb-2">Team Credits</h3>
+<p class="font-headline-md text-headline-md text-primary font-mono-data">18,450</p>
+</div>
+</div>
+</main>
+</body></html>

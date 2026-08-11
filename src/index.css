@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-label-caps: 'Geist', sans-serif;
+  --font-mono-data: 'Geist', monospace;
+  --font-body-lg: 'Geist', sans-serif;
+  --font-body-sm: 'Geist', sans-serif;
+  --font-headline-lg: 'Geist', sans-serif;
+  --font-headline-md: 'Geist', sans-serif;
+
+  --color-surface-bright: #3a3a2b;
+  --color-on-tertiary-fixed-variant: #244d4e;
+  --color-surface-container-highest: #363527;
+  --color-on-surface: #e6e3ce;
+  --color-secondary: #c6c6c7;
+  --color-inverse-primary: #626200;
+  --color-on-primary-fixed: #1d1d00;
+  --color-on-primary: #323200;
+  --color-on-secondary-container: #b4b5b5;
+  --color-surface-container-high: #2b2b1d;
+  --color-on-surface-variant: #cac8aa;
+  --color-outline: #939277;
+  --color-surface-tint: #cdcd00;
+  --color-tertiary-fixed: #c0eaeb;
+  --color-on-primary-fixed-variant: #494900;
+  --color-primary-fixed-dim: #cdcd00;
+  --color-tertiary-container: #c0eaeb;
+  --color-surface: #141408;
+  --color-primary: #ffffff;
+  --color-outline-variant: #484831;
+  --color-tertiary-fixed-dim: #a4cece;
+  --color-inverse-on-surface: #323123;
+  --color-surface-container-lowest: #0f0f04;
+  --color-on-tertiary-fixed: #002020;
+  --color-background: #000000;
+  --color-on-error: #690005;
+  --color-on-secondary-fixed: #1a1c1c;
+  --color-error: #ffb4ab;
+  --color-on-error-container: #ffdad6;
+  --color-on-tertiary-container: #436b6c;
+  --color-secondary-fixed-dim: #c6c6c7;
+  --color-primary-container: #eaea00;
+  --color-inverse-surface: #e6e3ce;
+  --color-on-primary-container: #686800;
+  --color-on-tertiary: #093637;
+  --color-surface-container-low: #1c1c0f;
+  --color-secondary-container: #454747;
+  --color-error-container: #93000a;
+  --color-on-secondary: #2f3131;
+  --color-primary-fixed: #eaea00;
+  --color-tertiary: #ffffff;
+  --color-surface-container: #111111;
+  --color-surface-variant: #363527;
+  --color-surface-dim: #141408;
+  --color-secondary-fixed: #e2e2e2;
+  --color-on-secondary-fixed-variant: #454747;
+  --color-on-background: #e6e3ce;
+
+  --spacing-container-max: 1440px;
+  --spacing-margin: 24px;
+  --spacing-unit: 4px;
+  --spacing-gutter: 16px;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 600;
+
+  --text-mono-data: 13px;
+  --text-mono-data--line-height: 1;
+  --text-mono-data--letter-spacing: -0.01em;
+  --text-mono-data--font-weight: 500;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 1.5;
+  --text-body-lg--letter-spacing: 0em;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 1.5;
+  --text-body-sm--letter-spacing: 0em;
+  --text-body-sm--font-weight: 400;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 1.1;
+  --text-headline-lg--letter-spacing: -0.04em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 1.2;
+  --text-headline-md--letter-spacing: -0.02em;
+  --text-headline-md--font-weight: 600;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+  }
+}
+
+/* Custom Scrollbar for sleek developer dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-tint);
+}

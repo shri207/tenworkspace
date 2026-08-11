@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile - TEN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#c4c7c7",
+                      "on-secondary-fixed-variant": "#544600",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "inverse-surface": "#2f3131",
+                      "border-subtle": "#E5E5E5",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "background": "#f9f9f9",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1a1c1c",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e2e2e2",
+                      "secondary-fixed": "#ffe16d",
+                      "primary-fixed": "#e5e2e1",
+                      "status-rejected": "#EF4444",
+                      "secondary-fixed-dim": "#e9c400",
+                      "primary-container": "#1c1b1b",
+                      "tertiary-fixed": "#e2e2e2",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "secondary": "#705d00",
+                      "on-primary-fixed-variant": "#474746",
+                      "surface-container-low": "#f3f3f3",
+                      "inverse-primary": "#c8c6c5",
+                      "on-tertiary-container": "#838484",
+                      "on-surface-variant": "#444748",
+                      "surface-container": "#eeeeee",
+                      "status-approved": "#10B981",
+                      "on-secondary-fixed": "#221b00",
+                      "status-review": "#FFD700",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e8e8e8",
+                      "tertiary-container": "#1a1c1c",
+                      "on-primary-container": "#858383",
+                      "surface-variant": "#e2e2e2",
+                      "on-secondary-container": "#6e5c00",
+                      "tertiary": "#000000",
+                      "on-surface": "#1a1c1c",
+                      "surface": "#f9f9f9",
+                      "surface-tint": "#5f5e5e",
+                      "status-verified": "#3B82F6",
+                      "on-primary-fixed": "#1c1b1b",
+                      "inverse-on-surface": "#f0f1f1",
+                      "primary": "#000000",
+                      "outline": "#747878",
+                      "surface-dim": "#dadada",
+                      "status-submitted": "#666666",
+                      "secondary-container": "#fcd400",
+                      "surface-bright": "#f9f9f9",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "on-primary": "#ffffff",
+                      "text-muted": "#666666"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "max-content-width": "1200px",
+                      "gutter": "24px",
+                      "sidebar-width": "240px",
+                      "margin-mobile": "16px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "technical-data": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Geist"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "technical-data": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Minimal custom styling for utilities not covered by Tailwind config */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .bento-wide {
+            grid-column: 1 / -1;
+        }
+        @media (min-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .bento-wide {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex selection:bg-secondary-container selection:text-primary">
+<!-- Side Navigation -->
+<nav class="hidden md:flex flex-col h-full p-4 w-[240px] h-screen fixed left-0 top-0 border-r border-border-subtle dark:border-outline-variant bg-surface dark:bg-surface-container-lowest text-primary dark:text-on-surface">
+<div class="mb-8 px-3">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface tracking-tighter">TEN</h1>
+<p class="font-label-caps text-label-caps text-text-muted mt-1">Developer Challenges</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span class="font-body-md text-body-md">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+<span class="font-body-md text-body-md">Submissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-body-md text-body-md">Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-body-md">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container dark:bg-surface-container-high text-on-surface border-l-2 border-secondary-container hover:bg-surface-container-low transition-colors duration-200 rounded-r-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md text-body-md font-medium">Profile</span>
+</a>
+</div>
+<div class="mt-auto mb-6">
+<button class="w-full bg-secondary-container text-primary font-body-md text-body-md font-medium py-2 rounded-DEFAULT hover:bg-secondary-fixed-dim transition-colors">
+                Submit Challenge
+            </button>
+</div>
+<div class="flex flex-col gap-2 pt-4 border-t border-border-subtle">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded-DEFAULT" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-body-md text-body-md">Documentation</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="w-full md:ml-[240px] flex flex-col min-h-screen">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between px-gutter w-full h-16 fixed top-0 right-0 z-40 md:w-[calc(100%-240px)] bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 border-b border-border-subtle dark:border-outline-variant text-primary dark:text-on-surface transition-all">
+<div class="flex items-center gap-4">
+<!-- Breadcrumb / Title -->
+<span class="font-headline-md text-headline-md hidden md:block">Profile</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter md:hidden">TEN</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search (Left on Web, hidden on mobile for cleaner top bar in this view) -->
+<div class="hidden md:flex items-center relative">
+<span class="material-symbols-outlined absolute left-3 text-text-muted text-sm" data-icon="search">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-surface-container-lowest border border-border-subtle rounded-full font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary-container transition-shadow w-64" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-text-muted">
+<button aria-label="Notifications" class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container rounded-full p-1">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Help" class="hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-container rounded-full p-1 hidden sm:block">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-border-subtle overflow-hidden">
+<img alt="User profile with role badge" class="w-full h-full object-cover" data-alt="A clean, professional headshot avatar of a software developer with a neutral expression, wearing a dark minimal t-shirt, set against a light gray background, highly detailed, photorealistic, cinematic lighting, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-7RcQ9m7nec7kvLyNGbvkXqpvqPa-3STB9mr0wyYaX_gp-TKmbSZOKNYQhiK_FbBX7dQ1tJdcd8yB1VZLNm0keKAYypOWI3r3TG4zoA8-Xi6IigeWaUjLfiws0P4DW_jL-56YeoQvnKQLFcc6dYhRr9AV00qaNFijJ8L9yybwEgzg5vbVn43dMN3K2fzOaewsBovCftEg3EOZb1ITl6TAGRURNBun6OXNFkbv-y92KTcU9OfBEYYH"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-grow p-margin-mobile md:p-gutter pt-24 md:pt-24 max-w-max-content-width mx-auto w-full">
+<!-- Profile Header -->
+<section class="bg-surface-container-lowest border border-border-subtle rounded-xl p-6 md:p-8 mb-8 relative overflow-hidden flex flex-col md:flex-row items-center md:items-start gap-6">
+<!-- Decorative background subtle gradient -->
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-surface-container-low opacity-50 pointer-events-none"></div>
+<div class="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-border-subtle overflow-hidden shrink-0">
+<img alt="Arun Kumar Profile Picture" class="w-full h-full object-cover" data-alt="A clean, professional headshot avatar of a software developer with a neutral expression, wearing a dark minimal t-shirt, set against a light gray background, highly detailed, photorealistic, cinematic lighting, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKu44ISHNN-c42PXzK88iAii7ZosXzUtsmTx23Z-iMuoYVrn0XwZoHllvOM1SBT9GVItJxViCLa7C_4BsFgSNWuWtfUcwB7UDxay0OMV9zl8qdqvvHrQOOMv-cMPpsC7qegIkShDVAsB4pAL1ePy6PGHIJmq-otqJe7V-zxLyZi8HPjdG7LkQgyLHmRiAnFSHxT2jglStKUxW6Hjv6jnw4Y_2gsjDbJdqj9BZA20tWieeJ-83r8BOO"/>
+</div>
+<div class="relative z-10 flex flex-col text-center md:text-left flex-grow">
+<div class="flex flex-col md:flex-row md:items-center justify-between w-full mb-2">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Arun Kumar</h2>
+<p class="font-body-md text-body-md text-text-muted mt-1">Participant <span class="mx-2 text-border-subtle">•</span> Team Alpha</p>
+</div>
+<div class="mt-4 md:mt-0 flex gap-3 justify-center md:justify-end">
+<button class="bg-primary text-on-primary font-body-sm text-body-sm px-4 py-2 rounded-DEFAULT hover:bg-inverse-surface transition-colors">
+                                Edit Profile
+                            </button>
+<button class="bg-surface-container-lowest border border-border-subtle text-primary font-body-sm text-body-sm px-4 py-2 rounded-DEFAULT hover:bg-surface-container-low transition-colors">
+                                View Public Profile
+                            </button>
+</div>
+</div>
+<div class="flex items-center justify-center md:justify-start gap-2 mt-4">
+<span class="material-symbols-outlined text-text-muted text-sm" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps text-text-muted">Member since Aug 2026</span>
+</div>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="bento-grid mb-8">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-6 flex flex-col justify-between hover:border-outline-variant transition-colors group">
+<div class="flex items-start justify-between mb-4">
+<span class="font-label-caps text-label-caps text-text-muted uppercase tracking-wider">Total Credits</span>
+<span class="material-symbols-outlined text-secondary-container" data-icon="toll">toll</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary group-hover:text-secondary transition-colors">1,840</div>
+<div class="font-technical-data text-technical-data text-status-approved mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span> +120 this week
+                        </div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-6 flex flex-col justify-between hover:border-outline-variant transition-colors group">
+<div class="flex items-start justify-between mb-4">
+<span class="font-label-caps text-label-caps text-text-muted uppercase tracking-wider">Modules Completed</span>
+<span class="material-symbols-outlined text-status-verified" data-icon="task_alt">task_alt</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">8<span class="text-text-muted text-lg font-normal">/12</span></div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 66%"></div>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-6 flex flex-col justify-between hover:border-outline-variant transition-colors group">
+<div class="flex items-start justify-between mb-4">
+<span class="font-label-caps text-label-caps text-text-muted uppercase tracking-wider">Current Rank</span>
+<span class="material-symbols-outlined text-status-review" data-icon="trophy">trophy</span>
+</div>
+<div>
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">#18</div>
+<div class="font-technical-data text-technical-data text-text-muted mt-1">
+                            Top 5% of participants
+                        </div>
+</div>
+</div>
+</section>
+<!-- Detailed Sections Bento -->
+<section class="bento-grid">
+<!-- Progress Overview (Wide) -->
+<div class="bento-wide bg-surface-container-lowest border border-border-subtle rounded-lg p-6">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2 border-b border-border-subtle pb-4">
+<span class="material-symbols-outlined text-text-muted" data-icon="trending_up">trending_up</span>
+                        Progress Overview
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="font-label-caps text-label-caps text-text-muted">Challenge Completion Rate</span>
+<span class="font-technical-data text-technical-data font-medium">85%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mb-4">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+<div class="flex justify-between items-end mb-2 mt-6">
+<span class="font-label-caps text-label-caps text-text-muted">Verification Rate</span>
+<span class="font-technical-data text-technical-data font-medium">92%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-status-verified h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-DEFAULT p-4 border border-border-subtle flex items-center justify-center">
+<!-- Placeholder for a more complex chart/graph component -->
+<div class="text-center text-text-muted">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="stacked_line_chart">stacked_line_chart</span>
+<p class="font-body-sm text-body-sm">Activity over time visualization</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="bg-surface-container-lowest border border-border-subtle rounded-lg p-6 flex flex-col h-[400px]">
+<h3 class="font-headline-md text-headline-md mb-4 flex items-center gap-2 border-b border-border-subtle pb-4">
+<span class="material-symbols-outlined text-text-muted" data-icon="history">history</span>
+                        Recent Activity
+                    </h3>
+<div class="overflow-y-auto pr-2 flex-grow space-y-4">
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-low border border-border-subtle flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm text-status-approved" data-icon="check_circle">check_circle</span>
+</div>
+<!-- Connector line -->
+<div class="absolute left-4 top-8 bottom-[-16px] w-[1px] bg-border-subtle -ml-[0.5px]"></div>
+<div>
+<p class="font-body-sm text-body-sm"><span class="font-medium text-primary">Approved Submission:</span> API Gateway Implementation</p>
+<span class="font-label-caps text-label-caps text-text-muted mt-1 block">2 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-low border border-border-subtle flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm text-status-verified" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div class="absolute left-4 top-8 bottom-[-16px] w-[1px] bg-border-subtle -ml-[0.5px]"></div>
+<div>
+<p class="font-body-sm text-body-sm"><span class="font-medium text-primary">Milestone Unlocked:</span> Backend Basics</p>
+<span class="font-label-caps text-label-caps text-text-muted mt-1 block">Yesterday</span>
+</div>
+</div>
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0 z-10">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="file_upload">file_upload</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm"><span class="font-medium text-primary">Submitted Challenge:</span> Database Schema Design</p>
+<span class="font-label-caps text-label-caps text-text-muted mt-1 block">3 days ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Milestones -->
+<div class="bento-wide bg-surface-container-lowest border border-border-subtle rounded-lg p-6">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2 border-b border-border-subtle pb-4">
+<span class="material-symbols-outlined text-text-muted" data-icon="stars">stars</span>
+                        Milestones
+                    </h3>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-3 bg-surface-container-low border border-border-subtle rounded-DEFAULT px-4 py-3 min-w-[200px]">
+<div class="w-10 h-10 rounded-full bg-[#E0F2FE] text-[#0369A1] flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-primary">Clean Coder</div>
+<div class="font-label-caps text-label-caps text-text-muted mt-0.5">Level 2</div>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low border border-border-subtle rounded-DEFAULT px-4 py-3 min-w-[200px]">
+<div class="w-10 h-10 rounded-full bg-[#FEF3C7] text-[#B45309] flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-primary">Rapid Resolver</div>
+<div class="font-label-caps text-label-caps text-text-muted mt-0.5">Level 1</div>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest border border-border-subtle border-dashed opacity-60 rounded-DEFAULT px-4 py-3 min-w-[200px]">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-text-muted flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div>
+<div class="font-body-sm text-body-sm font-medium text-text-muted">Cloud Architect</div>
+<div class="font-label-caps text-label-caps text-text-muted mt-0.5">Locked</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

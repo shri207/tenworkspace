@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TEN - Users</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#093637",
+                        "secondary-container": "#454747",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-lowest": "#0f0f04",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-tint": "#cdcd00",
+                        "on-tertiary-fixed": "#002020",
+                        "primary-fixed-dim": "#cdcd00",
+                        "on-primary-fixed-variant": "#494900",
+                        "inverse-surface": "#e6e3ce",
+                        "background": "#141408",
+                        "surface-container-low": "#1c1c0f",
+                        "surface-bright": "#3a3a2b",
+                        "primary": "#ffffff",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "secondary": "#c6c6c7",
+                        "on-primary": "#323200",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "tertiary": "#ffffff",
+                        "on-tertiary-container": "#436b6c",
+                        "on-secondary": "#2f3131",
+                        "on-primary-fixed": "#1d1d00",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#244d4e",
+                        "tertiary-container": "#c0eaeb",
+                        "surface": "#141408",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-background": "#e6e3ce",
+                        "tertiary-fixed": "#c0eaeb",
+                        "primary-container": "#eaea00",
+                        "surface-container-high": "#2b2b1d",
+                        "surface-container-highest": "#363527",
+                        "outline": "#939277",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#202013",
+                        "surface-dim": "#141408",
+                        "primary-fixed": "#eaea00",
+                        "inverse-primary": "#626200",
+                        "on-primary-container": "#686800",
+                        "on-surface-variant": "#cac8aa",
+                        "surface-variant": "#363527",
+                        "on-secondary-container": "#b4b5b5",
+                        "tertiary-fixed-dim": "#a4cece",
+                        "outline-variant": "#484831",
+                        "inverse-on-surface": "#323123",
+                        "on-surface": "#e6e3ce",
+                        "brand-yellow": "#FFFF00",
+                        "brand-black": "#000000",
+                        "brand-dark-gray": "#111111",
+                        "brand-gray": "#1A1A1A",
+                        "brand-border": "#333333"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "margin": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "mono-data": ["Geist"],
+                        "headline-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "mono-data": ["13px", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.brand-black');
+            color: theme('colors.primary');
+        }
+        .btn-primary {
+            background-color: theme('colors.brand-yellow');
+            color: theme('colors.brand-black');
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .btn-secondary {
+            background-color: theme('colors.brand-black');
+            color: theme('colors.primary');
+            border: 1px solid theme('colors.brand-border');
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            border-color: theme('colors.brand-yellow');
+            color: theme('colors.brand-yellow');
+        }
+        .input-field {
+            background-color: theme('colors.brand-black');
+            border: 1px solid theme('colors.brand-border');
+            color: theme('colors.primary');
+        }
+        .input-field:focus {
+            border-color: theme('colors.brand-yellow');
+            outline: none;
+        }
+        .input-field:focus + .input-label {
+            color: theme('colors.brand-yellow');
+            opacity: 1;
+            transform: translateY(-50%);
+        }
+        .card-surface {
+            background-color: theme('colors.brand-dark-gray');
+            border: 1px solid theme('colors.brand-border');
+        }
+        .chip {
+            border: 1px solid theme('colors.brand-border');
+            color: theme('colors.primary');
+        }
+        .chip.active {
+            border-color: theme('colors.brand-yellow');
+            color: theme('colors.brand-yellow');
+        }
+        .table-row {
+            border-bottom: 1px solid theme('colors.brand-border');
+            transition: all 0.2s ease;
+        }
+        .table-row:hover {
+            border-top: 1px solid theme('colors.brand-yellow');
+            border-bottom: 1px solid theme('colors.brand-yellow');
+            background-color: theme('colors.brand-gray');
+        }
+        /* Side nav active state style mapping */
+        .sidenav-active {
+            color: theme('colors.primary');
+            border-left: 2px solid theme('colors.primary');
+            background-color: theme('colors.surface-container-high');
+        }
+        .sidenav-inactive {
+            color: theme('colors.secondary');
+            opacity: 0.7;
+        }
+        .sidenav-inactive:hover {
+            border-left-color: theme('colors.primary');
+            color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-background border-r border-outline-variant flex flex-col py-margin px-4 z-50">
+<div class="mb-8 pl-4">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">TEN</h1>
+<p class="font-label-caps text-label-caps text-secondary mt-1">Dev Authority</p>
+</div>
+<button class="btn-primary w-full py-2 px-4 rounded mb-6 font-mono-data text-mono-data font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Submission
+        </button>
+<ul class="flex-1 space-y-1">
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span class="font-body-sm text-body-sm">Modules</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span class="font-body-sm text-body-sm">Submissions</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">leaderboard</span>
+<span class="font-body-sm text-body-sm">Leaderboard</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-body-sm text-body-sm">Teams</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+<span class="font-body-sm text-body-sm">Profile</span>
+</a>
+</li>
+<li>
+<a class="sidenav-active flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="font-body-sm text-body-sm font-semibold">Users</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+<span class="font-body-sm text-body-sm">Verification Queue</span>
+</a>
+</li>
+<li>
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<a class="sidenav-inactive flex items-center gap-3 px-4 py-3 rounded transition-colors duration-150 border-l-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-[20px]">memory</span>
+<span class="font-body-sm text-body-sm">System Status</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 bg-background border-b border-outline-variant flex justify-between items-center px-margin z-40">
+<div class="flex items-center gap-2 text-on-surface-variant font-mono-data text-mono-data">
+<span>TEN</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Users</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-opacity duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:text-primary transition-opacity duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant">
+<span class="font-mono-data text-mono-data text-primary">Admin Role</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden flex items-center justify-center">
+<img alt="Admin User Avatar" class="object-cover w-full h-full" data-alt="A small, stylized avatar profile picture of an administrator, depicted in a dark, minimalist cyberpunk style with sharp contrast. The subject is partially obscured, bathed in subtle neon yellow rim lighting against a deep black background. High resolution, professional rendering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1MDtsJosZIKHg6B-1MbourvvM3Bngf7mqjwgwG7D3R_-2qPfaj9I2wNs6WP-MC2CHqi3B2bi0wrmHvvUKHYS6PLr4sJ1uOa0kuAKqOwwV2MxPjw12KgfcRtWpAY0B3iBWxo0bvQk1HfUqFunapwz-2iEipUYzWHN2_vrBawZ8tXS7Ux9zZk5EMxFoWSG51AWfS873ND4LF54EyAjJQpkX0P5BfQ90AnO6Gmi7okNA_JSk0VDThzKC"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 flex-1 overflow-y-auto p-margin w-full bg-brand-black flex h-[calc(100vh-64px)] relative">
+<div class="flex-1 flex flex-col h-full overflow-hidden transition-all duration-300" id="main-content-area">
+<!-- Page Header -->
+<div class="flex justify-between items-center mb-6 shrink-0">
+<h2 class="font-headline-md text-headline-md text-primary">Users</h2>
+<div class="flex gap-3">
+<button class="btn-secondary px-4 py-2 font-mono-data text-mono-data flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export
+                    </button>
+<button class="btn-primary px-4 py-2 font-mono-data text-mono-data flex items-center gap-2 font-semibold">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Create User
+                    </button>
+</div>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-4 gap-4 mb-6 shrink-0">
+<div class="card-surface p-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">Total Users</span>
+<span class="font-headline-md text-headline-md text-primary">1,284</span>
+</div>
+<div class="card-surface p-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">Admins</span>
+<span class="font-headline-md text-headline-md text-primary">6</span>
+</div>
+<div class="card-surface p-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">Team Leads</span>
+<span class="font-headline-md text-headline-md text-primary">84</span>
+</div>
+<div class="card-surface p-4 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary mb-1">Participants</span>
+<span class="font-headline-md text-headline-md text-brand-yellow">1,194</span>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex gap-4 mb-4 shrink-0">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]">search</span>
+<input class="input-field w-full h-10 pl-10 pr-4 font-body-sm text-body-sm" placeholder="Search users by name, email, or ID..." type="text"/>
+</div>
+<button class="btn-secondary px-4 h-10 flex items-center gap-2 font-mono-data text-mono-data">
+                    Role <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="btn-secondary px-4 h-10 flex items-center gap-2 font-mono-data text-mono-data">
+                    Team <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="btn-secondary px-4 h-10 flex items-center gap-2 font-mono-data text-mono-data">
+                    Status <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="btn-secondary px-4 h-10 flex items-center gap-2 font-mono-data text-mono-data flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    More Filters
+                </button>
+</div>
+<!-- Users Table -->
+<div class="card-surface flex-1 overflow-hidden flex flex-col">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-brand-dark-gray z-10 border-b border-brand-border">
+<tr>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal">User</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal">Role</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal">Team</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal text-right">Credits</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal text-center">Modules</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal">Status</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal">Joined</th>
+<th class="py-3 px-4 font-label-caps text-label-caps text-secondary font-normal text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm overflow-y-auto">
+<!-- Active User Row (Linked to Drawer) -->
+<tr class="table-row cursor-pointer bg-brand-gray border-t border-b border-brand-yellow" onclick="toggleDrawer()">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-8 h-8 rounded-full border border-brand-border object-cover" data-alt="A small, stylized avatar profile picture of a young male software developer, depicted in a dark, minimalist cyberpunk style with sharp contrast. Subtle electric yellow rim lighting. High resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARqO_beVZ83ly3unQoEcXa_eB2qzeEtihTdnOBRLAA_4Rxpl8g7EowDf_3-oQJEc9RGEQFRBJtU7nDxYcKja2QBD3hIkY0v4hpUy75-SUyZeRQEzlEQ8DyzVrz-yLURuS1GHBjr4hOFPZirK3DlYlNxzHv1gVtr_PRn2X56CzFAQuG2WLY5_NCOHQbwpKolk5ZufFvWAjP3D2Y6psLhDcco31k1vdMxZGyw4XiJSXKjiaHeIUY46W2"/>
+<div>
+<div class="font-medium text-primary">Arun Kumar</div>
+<div class="text-secondary text-[11px] font-mono-data mt-0.5">USR-9421</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="chip px-2 py-0.5 text-[10px] font-mono-data rounded-sm">Participant</span>
+</td>
+<td class="py-3 px-4 text-primary">Alpha Squad</td>
+<td class="py-3 px-4 text-right font-mono-data text-brand-yellow">4,250</td>
+<td class="py-3 px-4 text-center font-mono-data text-primary">8/12</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></div>
+<span class="text-primary text-[12px]">Active</span>
+</div>
+</td>
+<td class="py-3 px-4 text-secondary font-mono-data text-[12px]">2023-10-14</td>
+<td class="py-3 px-4 text-right">
+<button class="text-secondary hover:text-brand-yellow transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- More Rows -->
+<tr class="table-row cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full border border-brand-border bg-brand-black flex items-center justify-center text-[12px] font-mono-data text-secondary">S</div>
+<div>
+<div class="font-medium text-primary">Sarah Jenkins</div>
+<div class="text-secondary text-[11px] font-mono-data mt-0.5">USR-8102</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="chip px-2 py-0.5 text-[10px] font-mono-data rounded-sm border-secondary text-secondary">Team Lead</span>
+</td>
+<td class="py-3 px-4 text-primary">Beta Force</td>
+<td class="py-3 px-4 text-right font-mono-data text-primary">12,000</td>
+<td class="py-3 px-4 text-center font-mono-data text-primary">12/12</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></div>
+<span class="text-primary text-[12px]">Active</span>
+</div>
+</td>
+<td class="py-3 px-4 text-secondary font-mono-data text-[12px]">2022-04-01</td>
+<td class="py-3 px-4 text-right">
+<button class="text-secondary hover:text-brand-yellow transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="table-row cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-8 h-8 rounded-full border border-brand-border object-cover" data-alt="A small, stylized avatar profile picture of an older male engineer, depicted in a dark, minimalist cyberpunk style with sharp contrast. Subtle electric yellow rim lighting. High resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIU6sNp4K6OC3juKECgY2iS9UpYkUdH5YRBUFgkQE-jL_1cYC7pT34PEFLdKMuP_cSkB-9D7yCx2Ce8BbuzV9PwsOpN02eQDwwpthgWNO_scrgHO8zOCmDH3i6aALH5Kx_gYjLMCqrG7wzuxKl92yX45RWpuhDd8lJNsHpq0hBsiebT4FDRAruYxf72qEcuZzTk5TpMWKa6ZzbgD47nAjPS1gu4Ua7ALimtsnvS0fX7N8t7uGLKx-W"/>
+<div>
+<div class="font-medium text-primary">David Chen</div>
+<div class="text-secondary text-[11px] font-mono-data mt-0.5">USR-7731</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="chip px-2 py-0.5 text-[10px] font-mono-data rounded-sm">Participant</span>
+</td>
+<td class="py-3 px-4 text-primary">Gamma Group</td>
+<td class="py-3 px-4 text-right font-mono-data text-primary">1,150</td>
+<td class="py-3 px-4 text-center font-mono-data text-primary">3/12</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-border"></div>
+<span class="text-secondary text-[12px]">Inactive</span>
+</div>
+</td>
+<td class="py-3 px-4 text-secondary font-mono-data text-[12px]">2023-11-20</td>
+<td class="py-3 px-4 text-right">
+<button class="text-secondary hover:text-brand-yellow transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="table-row cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full border border-brand-border bg-brand-black flex items-center justify-center text-[12px] font-mono-data text-secondary">E</div>
+<div>
+<div class="font-medium text-primary">Elena Rodriguez</div>
+<div class="text-secondary text-[11px] font-mono-data mt-0.5">USR-9942</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="chip px-2 py-0.5 text-[10px] font-mono-data rounded-sm border-brand-yellow text-brand-yellow">Admin</span>
+</td>
+<td class="py-3 px-4 text-secondary italic text-[12px]">System</td>
+<td class="py-3 px-4 text-right font-mono-data text-primary">--</td>
+<td class="py-3 px-4 text-center font-mono-data text-primary">--</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></div>
+<span class="text-primary text-[12px]">Active</span>
+</div>
+</td>
+<td class="py-3 px-4 text-secondary font-mono-data text-[12px]">2021-01-10</td>
+<td class="py-3 px-4 text-right">
+<button class="text-secondary hover:text-brand-yellow transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3 border-t border-brand-border flex justify-between items-center text-[12px] text-secondary font-mono-data">
+<span>Showing 1-4 of 1,284 users</span>
+<div class="flex gap-2">
+<button class="btn-secondary px-2 py-1 flex items-center justify-center opacity-50 cursor-not-allowed"><span class="material-symbols-outlined text-[16px]">chevron_left</span></button>
+<button class="btn-secondary px-2 py-1 flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- User Detail Drawer (Initially visible for design requirements) -->
+<div class="w-96 bg-brand-dark-gray border-l border-brand-border h-full flex flex-col transition-transform duration-300 transform translate-x-0 ml-6 flex-shrink-0" id="user-drawer">
+<div class="p-6 flex-1 overflow-y-auto">
+<div class="flex justify-between items-start mb-8">
+<div class="flex gap-4 items-center">
+<img alt="Arun Kumar Avatar" class="w-16 h-16 rounded-full border border-brand-yellow object-cover" data-alt="A close up portrait avatar of a young male software developer, dark minimal style, electric yellow rim light. High contrast, sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBx1DqlPMYXybJJiJ_tQSucdQ0YsxnP_Adq8gWuU8dAncsHQaPCIvTLf39FQgQRmoKY51wqi01ViV4LRQEg199tg1bKutxNbG71XeuwGF2bPi2KzqlGia2xFS2cELUAU3ikfxpUken4FL6cAyA-jjapuo0an7HXs_MvaSKm4xJeAlt5fKjwretzvkQJxalNzQt2TXoyumD6pk3oNE55SdfoapJJqeBDTFFrbqzjS4G_e_cWSKJpmv4"/>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary m-0">Arun Kumar</h3>
+<p class="font-mono-data text-secondary text-[12px] mt-1">USR-9421 • arun.k@ten.dev</p>
+</div>
+</div>
+<button class="text-secondary hover:text-brand-yellow transition-colors" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-6">
+<!-- Status & Role -->
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-brand-border p-3">
+<div class="font-label-caps text-label-caps text-secondary mb-2">Status</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-brand-yellow"></div>
+<span class="text-primary font-mono-data text-[13px]">Active</span>
+</div>
+</div>
+<div class="border border-brand-border p-3">
+<div class="font-label-caps text-label-caps text-secondary mb-2">Role</div>
+<span class="chip px-2 py-0.5 text-[11px] font-mono-data rounded-sm">Participant</span>
+</div>
+</div>
+<!-- Team & Assignment -->
+<div class="border border-brand-border p-4">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-label-caps text-label-caps text-secondary">Team Assignment</h4>
+<button class="text-brand-yellow text-[12px] font-mono-data hover:underline">Change</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">group</span>
+<span class="text-primary">Alpha Squad</span>
+</div>
+<div class="mt-3 pt-3 border-t border-brand-border flex justify-between items-center text-[12px] font-mono-data">
+<span class="text-secondary">Lead:</span>
+<span class="text-primary">Sarah Jenkins</span>
+</div>
+</div>
+<!-- Performance Stats -->
+<div>
+<h4 class="font-label-caps text-label-caps text-secondary mb-3">Performance metrics</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-brand-black border border-brand-border p-3 flex flex-col justify-center items-center">
+<span class="font-headline-md text-headline-md text-brand-yellow mb-1">4,250</span>
+<span class="font-mono-data text-[10px] text-secondary">Total Credits</span>
+</div>
+<div class="bg-brand-black border border-brand-border p-3 flex flex-col justify-center items-center">
+<span class="font-headline-md text-headline-md text-primary mb-1">8/12</span>
+<span class="font-mono-data text-[10px] text-secondary">Modules Completed</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="p-6 border-t border-brand-border bg-brand-black flex flex-col gap-3">
+<button class="btn-primary w-full py-2 font-mono-data text-mono-data font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                    Edit User
+                </button>
+<button class="btn-secondary w-full py-2 font-mono-data text-mono-data flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">manage_accounts</span>
+                    Change Role
+                </button>
+<button class="btn-secondary w-full py-2 font-mono-data text-mono-data flex items-center justify-center gap-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-brand-black transition-colors">
+<span class="material-symbols-outlined text-[18px]">toll</span>
+                    Adjust Credits
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Simple drawer toggle logic for demonstration
+        let drawerOpen = true;
+        function toggleDrawer() {
+            const drawer = document.getElementById('user-drawer');
+            drawerOpen = !drawerOpen;
+            if(drawerOpen) {
+                drawer.classList.remove('translate-x-full', 'hidden');
+                drawer.classList.add('translate-x-0', 'ml-6');
+            } else {
+                drawer.classList.remove('translate-x-0', 'ml-6');
+                drawer.classList.add('translate-x-full', 'hidden');
+            }
+        }
+    </script>
+</body></html>

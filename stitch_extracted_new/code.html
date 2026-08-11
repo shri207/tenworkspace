@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TEN Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-container-low": "#1c1c0f",
+                        "surface-bright": "#3a3a2b",
+                        "secondary": "#c6c6c7",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#363527",
+                        "on-secondary": "#2f3131",
+                        "inverse-on-surface": "#323123",
+                        "on-tertiary-container": "#436b6c",
+                        "tertiary": "#ffffff",
+                        "on-primary": "#323200",
+                        "primary-fixed": "#eaea00",
+                        "tertiary-container": "#c0eaeb",
+                        "tertiary-fixed-dim": "#a4cece",
+                        "surface-variant": "#363527",
+                        "inverse-primary": "#626200",
+                        "primary-fixed-dim": "#cdcd00",
+                        "background": "#141408",
+                        "on-primary-fixed": "#1d1d00",
+                        "surface": "#141408",
+                        "on-primary-fixed-variant": "#494900",
+                        "outline-variant": "#484831",
+                        "surface-dim": "#141408",
+                        "on-secondary-container": "#b4b5b5",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-high": "#2b2b1d",
+                        "on-surface": "#e6e3ce",
+                        "surface-container": "#202013",
+                        "primary-container": "#eaea00",
+                        "secondary-container": "#454747",
+                        "on-tertiary-fixed-variant": "#244d4e",
+                        "on-surface-variant": "#cac8aa",
+                        "inverse-surface": "#e6e3ce",
+                        "surface-container-lowest": "#0f0f04",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#454747",
+                        "outline": "#939277",
+                        "on-primary-container": "#686800",
+                        "surface-tint": "#cdcd00",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed": "#002020",
+                        "on-tertiary": "#093637",
+                        "tertiary-fixed": "#c0eaeb",
+                        "on-background": "#e6e3ce"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin": "24px",
+                        "unit": "4px",
+                        "container-max": "1440px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "mono-data": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "headline-lg": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "mono-data": ["13px", { "lineHeight": "1", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Geist', sans-serif; background-color: #000000; color: #e6e3ce; }
+        .grid-bg { background-size: 16px 16px; background-image: linear-gradient(to right, #111 1px, transparent 1px), linear-gradient(to bottom, #111 1px, transparent 1px); }
+        .glow-border:hover { border-color: #FFFF00 !important; }
+        .text-neon { color: #FFFF00; }
+        .bg-neon { background-color: #FFFF00; color: #000000; }
+    </style>
+</head>
+<body class="grid-bg min-h-screen text-on-background selection:bg-primary-fixed selection:text-black">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 border-r border-[#333333] bg-[#000000] flex flex-col z-50">
+<div class="h-16 flex items-center px-4 border-b border-[#333333]">
+<img alt="TEN Logo" class="w-8 h-8 mr-3 rounded" data-alt="A minimalist, high-contrast technology logo consisting of abstract geometric shapes in pure white on a solid black background, conveying a sense of rigorous engineering, precision, and modern software development logic. The aesthetic is strictly monochrome and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfzZ35Ih7NhnGWuInFwmC8EeeCYdIXB8dqOt7Enl6GejUtTgrU4JbmisMvZW2_gBbI8SfgucLsQ8vHKXaLgyqKlwzWJGWT45-O_t_J55TN1-APhbHOlolatNNrWkIhWSHOK551MmR-FhUABdxec--bZruenlfD5n7wtrNXuO_1_sppHHOVJ30gAlO3kpWXlfiNM9vBa9G1uf01ouK8eVgUGFJWHaFi8fnjouvi4BphjxR6cig-nsTz"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary-fixed tracking-tight">TEN</h1>
+<p class="font-label-caps text-label-caps text-[#888888]">Developer Challenge</p>
+</div>
+</div>
+<div class="flex-1 py-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-fixed hover:bg-[#111] border-l-2 border-transparent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-fixed hover:bg-[#111] border-l-2 border-transparent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span class="font-body-sm text-body-sm">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-fixed hover:bg-[#111] border-l-2 border-transparent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-body-sm text-body-sm">Submissions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary-fixed border-l-2 border-primary-fixed bg-[#111] transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-body-sm text-body-sm font-semibold">Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-fixed hover:bg-[#111] border-l-2 border-transparent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-sm text-body-sm">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-fixed hover:bg-[#111] border-l-2 border-transparent transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-sm text-body-sm">Profile</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#000000]/90 backdrop-blur-sm border-b border-[#333333] flex justify-between items-center px-gutter">
+<div class="flex items-center text-[#888]">
+<span class="font-label-caps text-label-caps">TEN</span>
+<span class="mx-2">/</span>
+<span class="font-label-caps text-label-caps text-primary-fixed">LEADERBOARD</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-fixed transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary-fixed rounded-full"></span>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded border border-[#333333]" data-alt="A stark, high-contrast, black and white portrait of a technical professional, dramatic rim lighting, intense focus, tech noir aesthetic, highly detailed, deep shadows, professional headshot for a developer platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfVyP-INFKlXSlrace8rlNkEM_4fBWVFD99Qkscq9tdfGMhlTtfWVZQY55vXSZOA0BauruNvknlw3vyPfa3sJCf0NeNMNdAqPcnN9vF66rszsBsaEHsVg7KdCaF5DPTNSVwlr-7Px7oAIM1OyYAfZopIllLApgwcwAaALqzZOWnn0qVnGpRWsN5hAOqHzkw2Fds1qIc5Mwgi_HHeUXhGzLEVxZAVT59H-BsopxTDm6AFH33b3fqm2w"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen p-6 max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-[#333333] pb-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-white mb-2">Leaderboard</h2>
+<p class="font-body-sm text-body-sm text-[#888] max-w-xl">See how participants, teams, and technical progress stack up.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 font-label-caps text-label-caps border border-[#333333] text-[#888] hover:border-primary-fixed hover:text-primary-fixed transition-colors">ALL TIME</button>
+<button class="px-3 py-1.5 font-label-caps text-label-caps border border-[#333333] text-[#888] hover:border-primary-fixed hover:text-primary-fixed transition-colors">THIS MONTH</button>
+<button class="px-3 py-1.5 font-label-caps text-label-caps border border-primary-fixed bg-[#111] text-primary-fixed transition-colors">THIS WEEK</button>
+</div>
+</div>
+<!-- Ranking Type Selector -->
+<div class="flex mb-8 border border-[#333333] w-max">
+<button class="px-6 py-2 font-label-caps text-label-caps border-b-2 border-primary-fixed bg-[#111] text-primary-fixed">PARTICIPANTS</button>
+<button class="px-6 py-2 font-label-caps text-label-caps border-b-2 border-transparent text-[#888] hover:text-white transition-colors border-l border-[#333333]">TEAM LEADS</button>
+<button class="px-6 py-2 font-label-caps text-label-caps border-b-2 border-transparent text-[#888] hover:text-white transition-colors border-l border-[#333333]">TEAMS</button>
+</div>
+<!-- Top Performers (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+<!-- Rank 2 -->
+<div class="bg-[#111] border border-[#333333] p-6 flex flex-col justify-between glow-border transition-colors group cursor-pointer h-[200px]">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-[#888]">#02</span>
+<span class="font-label-caps text-label-caps text-[#888] border border-[#333333] px-2 py-0.5">TEAM BETA</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-white group-hover:text-primary-fixed transition-colors">Priya S.</h3>
+<p class="font-mono-data text-mono-data text-[#aaa] mt-2">2,650 CREDITS</p>
+</div>
+</div>
+<!-- Rank 1 -->
+<div class="bg-[#1a1a1a] border border-primary-fixed p-6 flex flex-col justify-between transform -translate-y-2 relative shadow-[0_0_20px_rgba(255,255,0,0.1)]">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary-fixed/10 clip-triangle"></div>
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-primary-fixed">#01</span>
+<span class="font-label-caps text-label-caps text-black bg-primary-fixed px-2 py-0.5">TEAM ALPHA</span>
+</div>
+<div class="mt-8">
+<h3 class="font-headline-lg text-headline-lg text-white font-bold">Arun Kumar</h3>
+<p class="font-mono-data text-mono-data text-primary-fixed mt-2 text-lg">2,840 CREDITS</p>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="bg-[#111] border border-[#333333] p-6 flex flex-col justify-between glow-border transition-colors group cursor-pointer h-[200px]">
+<div class="flex justify-between items-start">
+<span class="font-mono-data text-mono-data text-[#888]">#03</span>
+<span class="font-label-caps text-label-caps text-[#888] border border-[#333333] px-2 py-0.5">TEAM GAMMA</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-white group-hover:text-primary-fixed transition-colors">Karthik R.</h3>
+<p class="font-mono-data text-mono-data text-[#aaa] mt-2">2,410 CREDITS</p>
+</div>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-4 mb-4 items-center">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#888] text-sm">search</span>
+<input class="w-full bg-[#000] border border-[#333333] text-white pl-10 pr-4 py-2 font-body-sm text-body-sm focus:border-primary-fixed focus:ring-0 outline-none transition-colors" placeholder="Search participants..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 font-label-caps text-label-caps border border-[#333333] text-[#888] hover:border-primary-fixed hover:text-white flex items-center gap-1 transition-colors">TEAM <span class="material-symbols-outlined text-sm">arrow_drop_down</span></button>
+<button class="px-3 py-1.5 font-label-caps text-label-caps border border-[#333333] text-[#888] hover:border-primary-fixed hover:text-white flex items-center gap-1 transition-colors">ROLE <span class="material-symbols-outlined text-sm">arrow_drop_down</span></button>
+</div>
+</div>
+<!-- Main Ranking Table -->
+<div class="w-full overflow-x-auto border border-[#333333] bg-[#000]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#333333] bg-[#111]">
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal w-16">RANK</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal">PARTICIPANT</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal">TEAM</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal text-right">COMPLETED</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal text-right">VERIFIED</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal text-right">CREDITS</th>
+<th class="p-3 font-label-caps text-label-caps text-[#888] font-normal text-right w-20">CHG</th>
+</tr>
+</thead>
+<tbody class="font-mono-data text-mono-data">
+<tr class="border-b border-[#333333] hover:bg-[#111] hover:border-y-primary-fixed transition-colors cursor-pointer" onclick="document.getElementById('drawer').classList.toggle('translate-x-full')">
+<td class="p-3 text-[#888]">04</td>
+<td class="p-3 text-white font-body-sm">Sneha P.</td>
+<td class="p-3 text-[#888]">Team Delta</td>
+<td class="p-3 text-right">10</td>
+<td class="p-3 text-right">9</td>
+<td class="p-3 text-right text-white">2,100</td>
+<td class="p-3 text-right text-[#4ade80]">—</td>
+</tr>
+<tr class="border-b border-[#333333] hover:bg-[#111] hover:border-y-primary-fixed transition-colors cursor-pointer">
+<td class="p-3 text-[#888]">05</td>
+<td class="p-3 text-white font-body-sm">Rahul M.</td>
+<td class="p-3 text-[#888]">Team Alpha</td>
+<td class="p-3 text-right">9</td>
+<td class="p-3 text-right">8</td>
+<td class="p-3 text-right text-white">1,950</td>
+<td class="p-3 text-right text-[#4ade80]">↑ 1</td>
+</tr>
+<!-- Current User Highlight -->
+<tr class="border-b border-[#333333] bg-[#1a1a10] border-l-2 border-l-primary-fixed hover:border-y-primary-fixed transition-colors cursor-pointer relative">
+<td class="p-3 text-primary-fixed">18</td>
+<td class="p-3 text-white font-body-sm font-bold flex items-center gap-2">Arun Kumar <span class="text-[9px] bg-primary-fixed text-black px-1 py-0.5 font-bold tracking-widest">YOU</span></td>
+<td class="p-3 text-[#aaa]">Team Alpha</td>
+<td class="p-3 text-right">6</td>
+<td class="p-3 text-right">5</td>
+<td class="p-3 text-right text-primary-fixed font-bold">1,240</td>
+<td class="p-3 text-right text-[#f87171]">↓ 2</td>
+</tr>
+<tr class="border-b border-[#333333] hover:bg-[#111] hover:border-y-primary-fixed transition-colors cursor-pointer">
+<td class="p-3 text-[#888]">19</td>
+<td class="p-3 text-white font-body-sm">Vikram S.</td>
+<td class="p-3 text-[#888]">Team Zeta</td>
+<td class="p-3 text-right">5</td>
+<td class="p-3 text-right">5</td>
+<td class="p-3 text-right text-white">1,100</td>
+<td class="p-3 text-right text-[#888]">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Footer Analytics -->
+<div class="mt-8 pt-4 border-t border-[#333333] flex flex-wrap gap-8 text-[#888]">
+<div>
+<span class="font-label-caps text-label-caps block mb-1">TOTAL PARTICIPANTS</span>
+<span class="font-mono-data text-mono-data text-white text-lg">1,024</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block mb-1">TOTAL CREDITS AWARDED</span>
+<span class="font-mono-data text-mono-data text-white text-lg">142,500</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block mb-1">ACTIVE TEAMS</span>
+<span class="font-mono-data text-mono-data text-white text-lg">42</span>
+</div>
+</div>
+</main>
+<!-- Side Drawer (Hidden by default) -->
+<div class="fixed right-0 top-16 h-[calc(100%-4rem)] w-80 bg-[#000] border-l border-[#333333] transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col" id="drawer">
+<div class="p-6 border-b border-[#333333] flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-white">Sneha P.</h3>
+<p class="font-label-caps text-label-caps text-[#888] mt-1">TEAM DELTA</p>
+</div>
+<button class="text-[#888] hover:text-white material-symbols-outlined" onclick="document.getElementById('drawer').classList.add('translate-x-full')">close</button>
+</div>
+<div class="p-6 flex-1 overflow-y-auto">
+<div class="mb-6">
+<span class="font-label-caps text-label-caps text-[#888] block mb-2">CURRENT RANK</span>
+<div class="font-mono-data text-mono-data text-4xl text-primary-fixed">#04</div>
+</div>
+<div class="space-y-4 font-mono-data text-mono-data">
+<div class="flex justify-between border-b border-[#333333] pb-2">
+<span class="text-[#888]">Total Credits</span>
+<span class="text-white">2,100</span>
+</div>
+<div class="flex justify-between border-b border-[#333333] pb-2">
+<span class="text-[#888]">Modules Completed</span>
+<span class="text-white">10</span>
+</div>
+<div class="flex justify-between border-b border-[#333333] pb-2">
+<span class="text-[#888]">Code Verifications</span>
+<span class="text-white">9</span>
+</div>
+<div class="flex justify-between border-b border-[#333333] pb-2">
+<span class="text-[#888]">Rank Change (30d)</span>
+<span class="text-[#4ade80]">+2</span>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-[#333333]">
+<button class="w-full bg-[#111] border border-[#333333] text-white py-3 font-label-caps text-label-caps hover:border-primary-fixed hover:text-primary-fixed transition-colors">VIEW FULL PROFILE</button>
+</div>
+</div>
+</body></html>

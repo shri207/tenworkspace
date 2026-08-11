@@ -1,0 +1,111 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profiles and credentials",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "team_lead", "admin"] },
+        "credits": { "type": "number" },
+        "teamId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "name", "role", "credits"]
+    },
+    "teams": {
+      "title": "Team",
+      "description": "Hackathon teams",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "teamLeadId": { "type": "string" },
+        "memberCount": { "type": "number" },
+        "totalCredits": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "teamLeadId"]
+    },
+    "modules": {
+      "title": "Module",
+      "description": "Challenge modules",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "creditValue": { "type": "number" },
+        "deadline": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "description", "creditValue"]
+    },
+    "submissions": {
+      "title": "Submission",
+      "description": "GitHub repository submissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "teamId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "githubUrl": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["submitted", "under_review", "verified", "approved", "rejected"]
+        },
+        "submittedAt": { "type": "string" },
+        "reviewedBy": { "type": "string" },
+        "reviewedAt": { "type": "string" },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "string" },
+        "userCreditsAwarded": { "type": "number" },
+        "teamLeadCreditsAwarded": { "type": "number" },
+        "teamLeadFeedback": { "type": "string" },
+        "adminFeedback": { "type": "string" }
+      },
+      "required": ["id", "userId", "moduleId", "githubUrl", "title", "status", "submittedAt"]
+    },
+    "creditTransactions": {
+      "title": "CreditTransaction",
+      "description": "Credit history log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "submissionId": { "type": "string" },
+        "amount": { "type": "number" },
+        "type": {
+          "type": "string",
+          "enum": ["module_completion", "team_lead_bonus", "admin_adjustment"]
+        },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "amount", "type", "description", "createdAt"]
+    },
+    "notifications": {
+      "title": "Notification",
+      "description": "User notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "read": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "type": { "type": "string" },
+        "link": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "message", "read", "createdAt"]
+    }
+  }
+}

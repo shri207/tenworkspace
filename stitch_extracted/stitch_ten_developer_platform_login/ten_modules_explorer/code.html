@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TEN - Modules List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-fixed-variant": "#544600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-surface": "#2f3131",
+                        "border-subtle": "#E5E5E5",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed": "#ffe16d",
+                        "primary-fixed": "#e5e2e1",
+                        "status-rejected": "#EF4444",
+                        "secondary-fixed-dim": "#e9c400",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-fixed": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary": "#705d00",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-low": "#f3f3f3",
+                        "inverse-primary": "#c8c6c5",
+                        "on-tertiary-container": "#838484",
+                        "on-surface-variant": "#444748",
+                        "surface-container": "#eeeeee",
+                        "status-approved": "#10B981",
+                        "on-secondary-fixed": "#221b00",
+                        "status-review": "#FFD700",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-container": "#1a1c1c",
+                        "on-primary-container": "#858383",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-container": "#6e5c00",
+                        "tertiary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "surface": "#f9f9f9",
+                        "surface-tint": "#5f5e5e",
+                        "status-verified": "#3B82F6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#f0f1f1",
+                        "primary": "#000000",
+                        "outline": "#747878",
+                        "surface-dim": "#dadada",
+                        "status-submitted": "#666666",
+                        "secondary-container": "#fcd400",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#ffffff",
+                        "text-muted": "#666666"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-content-width": "1200px",
+                        "gutter": "24px",
+                        "sidebar-width": "240px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "technical-data": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "technical-data": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #FAFAFA; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="text-on-surface flex flex-col md:flex-row min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full p-4 w-[240px] h-screen fixed left-0 top-0 border-r border-border-subtle bg-surface z-50">
+<div class="mb-8 px-3">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">TEN</h1>
+<p class="font-body-sm text-body-sm text-text-muted">Developer Challenges</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container text-on-surface border-l-2 border-secondary-container rounded scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label-caps text-label-caps">Modules</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">send</span>
+<span class="font-label-caps text-label-caps">Submissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps">Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-caps text-label-caps">Teams</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+<div class="mt-auto pt-8 border-t border-border-subtle space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-muted hover:text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-caps text-label-caps">Documentation</span>
+</a>
+<button class="w-full mt-4 bg-secondary-container text-primary font-label-caps text-label-caps py-3 rounded-lg font-bold hover:bg-secondary-fixed-dim transition-colors">Submit Challenge</button>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="hidden md:flex items-center justify-between px-gutter w-[calc(100%-240px)] ml-[240px] h-16 fixed top-0 right-0 z-40 border-b border-border-subtle bg-surface/80 backdrop-blur-md">
+<div class="flex items-center text-text-muted">
+<span class="material-symbols-outlined mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 font-body-md text-body-md text-primary placeholder-text-muted w-64" placeholder="Search modules..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-muted hover:text-primary transition-colors focus:ring-2 focus:ring-secondary-container rounded-full p-1">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-text-muted hover:text-primary transition-colors focus:ring-2 focus:ring-secondary-container rounded-full p-1">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-border-subtle">
+<img class="w-full h-full object-cover" data-alt="A minimal profile avatar for a developer platform, showing a stylized abstract geometric shape in grayscale on a stark white background. High contrast, clean, professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRmzQz_FY05s6YkoF0Ng05YGkd8VZnbeBDb_NLI6kEpy67WrolQnHZm8fITcV2QgPE-z1OFV3s4w24kWaI8Xcvlofw_V8GqXqnA6aA4mG0ES5oHa5aADrJgyUfsaFdZ2y9s4EBDYd-80LBymsm1TeoAnXF6aQzEoGtLpebTUs2unppfKnCR25MjbRArcberrvwVTZNhDqcIMZ9_g6x062AxYY2Jyo_HyQEoyCpaj3r_-E_3_V1J1_G"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-[240px] md:mt-16 p-margin-mobile md:p-gutter max-w-max-content-width w-full mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Modules</h2>
+<p class="font-body-md text-body-md text-text-muted max-w-2xl">Explore challenges, build projects, and earn credits.</p>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-lg border border-border-subtle hover:border-outline-variant transition-colors">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">AVAILABLE</div>
+<div class="font-headline-lg text-headline-lg text-primary">24</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg border border-border-subtle hover:border-outline-variant transition-colors">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">IN PROGRESS</div>
+<div class="font-headline-lg text-headline-lg text-status-verified">3</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg border border-border-subtle hover:border-outline-variant transition-colors">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">COMPLETED</div>
+<div class="font-headline-lg text-headline-lg text-status-approved">8</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg border border-border-subtle hover:border-outline-variant transition-colors">
+<div class="font-label-caps text-label-caps text-text-muted mb-2">TOTAL CREDITS</div>
+<div class="font-headline-lg text-headline-lg text-status-review">3,250</div>
+</div>
+</section>
+<!-- Filters & Actions -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div class="flex flex-wrap gap-2">
+<button class="bg-primary text-on-primary font-body-sm text-body-sm px-4 py-2 rounded-full border border-primary">All Categories</button>
+<button class="bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors font-body-sm text-body-sm px-4 py-2 rounded-full border border-border-subtle">Systems</button>
+<button class="bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors font-body-sm text-body-sm px-4 py-2 rounded-full border border-border-subtle">CLI</button>
+<button class="bg-surface-container-lowest text-primary hover:bg-surface-container-low transition-colors font-body-sm text-body-sm px-4 py-2 rounded-full border border-border-subtle">Networking</button>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<select class="bg-surface-container-lowest border border-border-subtle rounded text-body-sm font-body-sm py-2 px-3 text-primary focus:ring-secondary-container w-full md:w-auto">
+<option>Any Difficulty</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+</select>
+<select class="bg-surface-container-lowest border border-border-subtle rounded text-body-sm font-body-sm py-2 px-3 text-primary focus:ring-secondary-container w-full md:w-auto">
+<option>All Statuses</option>
+<option>Not Started</option>
+<option>In Progress</option>
+<option>Completed</option>
+</select>
+</div>
+</section>
+<!-- Featured Module Bento -->
+<section class="mb-12">
+<div class="relative bg-primary-container text-on-primary-container rounded-xl overflow-hidden border border-primary-container group p-8 md:p-12 min-h-[320px] flex flex-col justify-end">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="bg-cover bg-center w-full h-full" data-alt="Abstract visualization of a TCP networking server architecture. Glowing neon lines forming network nodes on a dark background, representing data flow and connectivity. High tech, precision, dark mode aesthetic but integrated cleanly." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWXWmTN9IGjI3dS_EQDpdhVPInJ4LnfQGeG6cT9I2_FvBT5Ina9pwPYBl9q1sj02i2AxeEkLG5YUE6ZDp9uF9Fa9ldG_8_ep68JrUiiGtVEsg3ficaPpvvhUXz2pPp2qCTA55zZ_0EOBVWmUAGDGa8TNUeZWg2pyV8OK7ZJ1saQUKhUZ7-lqstCXHWqC8fp4FvWyjMCqkfFQlHUF6Hu94Q9tM-Av2lk_EuW93pxGdl5P3ncyvkCGoW')"></div>
+</div>
+<div class="relative z-10 flex flex-col items-start gap-4 max-w-2xl">
+<div class="flex items-center gap-3">
+<span class="bg-surface-container-lowest/10 text-white font-label-caps text-label-caps px-2 py-1 rounded backdrop-blur-sm border border-white/20">Networking</span>
+<span class="text-status-review font-label-caps text-label-caps flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">bolt</span> Advanced</span>
+</div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white">Build a Native TCP Server</h3>
+<p class="font-body-md text-body-md text-gray-300">Construct a high-performance, multithreaded TCP server from scratch. Understand socket programming, concurrency models, and network protocols.</p>
+<div class="flex items-center gap-6 mt-4">
+<button class="bg-secondary-container text-primary font-label-caps text-label-caps py-2 px-6 rounded-lg font-bold hover:bg-secondary-fixed-dim transition-colors flex items-center gap-2">
+                            Start Module <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<span class="font-technical-data text-technical-data text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">monetization_on</span> 250 Credits
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col hover:shadow-sm hover:border-outline-variant transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="font-technical-data text-technical-data text-text-muted">MODULE 07</div>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">CLI</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:text-status-verified transition-colors">Build a CLI File Manager</h4>
+<p class="font-body-sm text-body-sm text-text-muted mb-6 flex-1">Implement a command-line tool to navigate and manipulate the file system with robust error handling.</p>
+<div class="flex items-center justify-between pt-4 border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-text-muted">INTERMEDIATE</span>
+<span class="font-technical-data text-technical-data text-primary">150 CR</span>
+</div>
+<button class="bg-primary text-on-primary font-body-sm text-body-sm px-4 py-2 rounded hover:bg-inverse-surface transition-colors">Start</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col hover:shadow-sm hover:border-outline-variant transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="font-technical-data text-technical-data text-text-muted">MODULE 04</div>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">Systems</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:text-status-verified transition-colors">Implement a Memory Allocator</h4>
+<p class="font-body-sm text-body-sm text-text-muted mb-6 flex-1">Design and build a custom malloc/free implementation to manage heap memory allocation efficiently.</p>
+<div class="flex items-center justify-between pt-4 border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-status-review flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-status-review"></span> IN PROGRESS</span>
+<span class="font-technical-data text-technical-data text-primary">300 CR</span>
+</div>
+<button class="bg-surface-container-highest text-primary border border-border-subtle font-body-sm text-body-sm px-4 py-2 rounded hover:bg-surface-container-low transition-colors">Continue</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col hover:shadow-sm hover:border-outline-variant transition-all group opacity-80">
+<div class="flex justify-between items-start mb-4">
+<div class="font-technical-data text-technical-data text-text-muted">MODULE 01</div>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">Fundamentals</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2">Version Control Implementation</h4>
+<p class="font-body-sm text-body-sm text-text-muted mb-6 flex-1">Create a simplified Git clone to understand directed acyclic graphs and content-addressable storage.</p>
+<div class="flex items-center justify-between pt-4 border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-status-approved flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> COMPLETED</span>
+<span class="font-technical-data text-technical-data text-text-muted line-through">100 CR</span>
+</div>
+<button class="text-text-muted font-body-sm text-body-sm px-4 py-2 hover:text-primary transition-colors flex items-center gap-1">Review <span class="material-symbols-outlined text-[16px]">open_in_new</span></button>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col hover:shadow-sm hover:border-outline-variant transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="font-technical-data text-technical-data text-text-muted">MODULE 12</div>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">Networking</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:text-status-verified transition-colors">Custom HTTP/1.1 Server</h4>
+<p class="font-body-sm text-body-sm text-text-muted mb-6 flex-1">Parse raw HTTP requests, handle routing, and construct compliant HTTP responses from the ground up.</p>
+<div class="flex items-center justify-between pt-4 border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-text-muted">ADVANCED</span>
+<span class="font-technical-data text-technical-data text-primary">400 CR</span>
+</div>
+<button class="bg-primary text-on-primary font-body-sm text-body-sm px-4 py-2 rounded hover:bg-inverse-surface transition-colors">Start</button>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface-container-lowest border border-border-subtle rounded-lg p-5 flex flex-col hover:shadow-sm hover:border-outline-variant transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="font-technical-data text-technical-data text-text-muted">MODULE 08</div>
+<span class="bg-surface-container text-on-surface-variant font-label-caps text-label-caps px-2 py-1 rounded">Systems</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:text-status-verified transition-colors">Key-Value Store Engine</h4>
+<p class="font-body-sm text-body-sm text-text-muted mb-6 flex-1">Develop a persistent storage engine using LSM trees and Write-Ahead Logging for durability.</p>
+<div class="flex items-center justify-between pt-4 border-t border-border-subtle">
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-status-review flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-status-review"></span> IN PROGRESS</span>
+<span class="font-technical-data text-technical-data text-primary">350 CR</span>
+</div>
+<button class="bg-surface-container-highest text-primary border border-border-subtle font-body-sm text-body-sm px-4 py-2 rounded hover:bg-surface-container-low transition-colors">Continue</button>
+</div>
+</article>
+</section>
+</main>
+</body></html>
