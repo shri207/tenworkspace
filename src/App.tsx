@@ -25,6 +25,7 @@ import {
   listenToTeams,
   seedFirestoreIfEmpty,
   createModule,
+  deleteModule,
   createTeamGroup,
   createSubmissionRecord,
   verifySubmissionByLead,
@@ -157,6 +158,10 @@ function MainAppContent() {
     await createModule(moduleData);
   };
 
+  const handleDeleteModule = async (moduleId: string) => {
+    await deleteModule(moduleId);
+  };
+
   const handleCreateGroup = async (groupData: { name: string; memberIds: string[] }) => {
     if (!userProfile) return;
     await createTeamGroup({
@@ -210,9 +215,11 @@ function MainAppContent() {
             modules={modules}
             submissions={submissions}
             teams={teams}
+            users={users}
             onNavigate={handleNavigate}
             onSubmitWork={handleSubmitWork}
             onCreateModule={handleCreateModule}
+            onDeleteModule={handleDeleteModule}
           />
         );
 

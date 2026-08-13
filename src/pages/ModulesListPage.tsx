@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Module, Submission, Team } from '../types';
+import { Module, Submission, Team, User } from '../types';
 import { ModuleCard } from '../components/common/ModuleCard';
 import { SubmissionModal } from '../components/common/SubmissionModal';
 import { CreateModuleModal } from '../components/common/CreateModuleModal';
@@ -9,6 +9,7 @@ interface ModulesListPageProps {
   modules: Module[];
   submissions: Submission[];
   teams: Team[];
+  users: User[];
   onNavigate: (path: string) => void;
   onSubmitWork: (subData: {
     moduleId: string;
@@ -17,15 +18,18 @@ interface ModulesListPageProps {
     description: string;
   }) => Promise<void>;
   onCreateModule?: (moduleData: Omit<Module, 'id' | 'createdAt'>) => Promise<void>;
+  onDeleteModule?: (moduleId: string) => Promise<void>;
 }
 
 export const ModulesListPage: React.FC<ModulesListPageProps> = ({
   modules,
   submissions,
   teams,
+  users,
   onNavigate,
   onSubmitWork,
   onCreateModule,
+  onDeleteModule,
 }) => {
   const { userProfile, role } = useAuth();
   const [selectedModuleForModal, setSelectedModuleForModal] = useState<string | undefined>(undefined);
@@ -161,7 +165,10 @@ export const ModulesListPage: React.FC<ModulesListPageProps> = ({
                 module={mod}
                 userSubmission={userSub}
                 teams={teams}
+                users={users}
+                allSubmissions={submissions}
                 onSelect={handleSelectModule}
+                onDeleteModule={onDeleteModule}
               />
             );
           })

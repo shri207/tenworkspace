@@ -1,19 +1,29 @@
-import React from 'react';
-import { Module, Submission, Team } from '../../types';
+import React, { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import { Module, Submission, Team, User } from '../../types';
 
 interface ModuleCardProps {
   module: Module;
   userSubmission?: Submission;
   teams?: Team[];
+  users?: User[];
+  allSubmissions?: Submission[];
   onSelect: (module: Module) => void;
+  onDeleteModule?: (moduleId: string) => Promise<void>;
 }
 
 export const ModuleCard: React.FC<ModuleCardProps> = ({
   module,
   userSubmission,
   teams = [],
+  users = [],
+  allSubmissions = [],
   onSelect,
+  onDeleteModule,
 }) => {
+  const { role } = useAuth();
+  const [showSubmissions, setShowSubmissions] = useState(false);
+
   const getSubmissionStatus = () => {
     if (!userSubmission) return 'not_started';
     return userSubmission.status;
@@ -134,6 +144,59 @@ export const ModuleCard: React.FC<ModuleCardProps> = ({
         </div>
         {actionButton}
       </div>
+
+      {(role === 'admin' || role === 'team_lead') && (
+        <div className="mt-4 pt-4 border-t border-[var(--color-outline-variant)]">
+          <div className="flex flex-col gap-3">
+            <div className="flex justify-between items-center">
+              <span className="font-mono-data text-[11px] text-[var(--color-secondary)]">
+                Created: {new Date(module.createdAt).toLocaleDateString()}
+              </span>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setShowSubmissions(!showSubmissions)}
+                  className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] font-body-sm text-[12px] flex items-center gap-1"
+                >
+                  {showSubmissions ? 'Hide Submissions' : 'Show Submissions'}
+                </button>
+                {onDeleteModule && (
+                  <button
+                    onClick={() => {
+                      if (window.confirm('Are you sure you want to delete this module?')) {
+                        onDeleteModule(module.id);
+                      }
+                    }}
+                    className="text-red-400 hover:text-red-300 font-body-sm text-[12px]"
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {showSubmissions && (
+              <div className="bg-[var(--color-surface-container)] rounded p-3 mt-2 max-h-40 overflow-y-auto">
+                <h5 className="font-label-caps text-[10px] text-[var(--color-secondary)] mb-2 uppercase">Participant Status</h5>
+                <ul className="space-y-2">
+                  {users
+                    .filter((u) => !module.targetTeamId || u.teamId === module.targetTeamId)
+                    .map((u) => {
+                      const userSub = allSubmissions.find((s) => s.userId === u.uid && s.moduleId === module.id);
+                      return (
+                        <li key={u.uid} className="flex justify-between items-center text-[12px]">
+                          <span className="text-[var(--color-primary)] truncate max-w-[150px]">{u.name}</span>
+                          <span className={`font-mono-data text-[10px] uppercase ${userSub ? 'text-green-400' : 'text-[var(--color-secondary)]'}`}>
+                            {userSub ? userSub.status : 'Not Submitted'}
+                          </span>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </article>
   );
 };

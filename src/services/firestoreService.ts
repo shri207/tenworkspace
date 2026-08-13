@@ -5,6 +5,7 @@ import {
   getDoc,
   setDoc,
   updateDoc,
+  deleteDoc,
   onSnapshot,
   query,
   where,
@@ -400,6 +401,21 @@ export async function createModule(moduleData: Omit<Module, 'id' | 'createdAt'>)
   }
 
   return newModule;
+}
+
+export async function deleteModule(moduleId: string): Promise<void> {
+  if (isFirebaseConfigured && db) {
+    try {
+      await deleteDoc(doc(db, 'modules', moduleId));
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, `modules/${moduleId}`);
+    }
+  } else {
+    const store = loadLocalStore();
+    store.modules = store.modules.filter((m) => m.id !== moduleId);
+    saveLocalStore(store);
+    notifyLocalChanges();
+  }
 }
 
 // ================= SUBMISSIONS OPERATIONS =================
