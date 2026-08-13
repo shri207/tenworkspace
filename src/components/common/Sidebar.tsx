@@ -42,6 +42,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentPath, onNavigate, isMob
 
   const getTeamLeadNav = () => [
     { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+    { label: 'Modules', path: '/modules', icon: Layers },
     { label: 'Team Workspace', path: '/team', icon: Users },
     { label: 'Submissions', path: '/submissions', icon: FileCheck2 },
     { label: 'Leaderboard', path: '/leaderboard', icon: Trophy },

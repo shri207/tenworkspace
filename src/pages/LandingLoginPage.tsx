@@ -57,7 +57,7 @@ export const LandingLoginPage: React.FC<LandingLoginPageProps> = ({ onNavigate }
       {/* Left Split: Brand Showcase */}
       <div className="hidden lg:flex w-1/2 bg-[var(--color-surface)] flex-col justify-between p-12 lg:p-24 border-r border-[var(--color-outline-variant)] relative overflow-hidden">
         {/* Background subtle pattern/decor */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#eaea00 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+        <div className="absolute inset-0 pointer-events-none opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#ffcc00 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
         
         {/* Header / Logo Area */}
         <div className="flex items-center z-10">
